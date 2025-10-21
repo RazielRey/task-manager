@@ -16,14 +16,14 @@ WORKDIR /app
 COPY --from=builder /root/.local /root/.local
 
 # Copy application code
-COPY app.py
-COPY models.py
-COPY version.py
+COPY app.py .
+COPY models.py .
+COPY version.py .
 
 # Create directory for database
 RUN mkdir -p /data
 
-# Make sure scripts in /root/.local are executable
+# Make sure scripts in .local are usable
 ENV PATH=/root/.local/bin:$PATH
 
 # Set environment variables
@@ -31,7 +31,7 @@ ENV PYTHONUNBUFFERED=1
 ENV DB_PATH=/data/tasks.db
 ENV PORT=5000
 
-# Expose the port
+# Expose port
 EXPOSE 5000
 
 # Health check
