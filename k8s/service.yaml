@@ -6,6 +6,7 @@ metadata:
   labels:
     app: task-api
 spec:
+  type: ClusterIP
   selector:
     app: task-api
   ports:
@@ -13,5 +14,4 @@ spec:
       targetPort: 5000
       protocol: TCP
       name: http
-    - containerPort: 5000
     
