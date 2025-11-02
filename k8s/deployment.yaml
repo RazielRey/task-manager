@@ -22,11 +22,9 @@ spec:
         ports:
         - containerPort: 5000
           protocol: TCP
-        env:
-        - name: DB_PATH
-          value: "/data/tasks.db"
-        - name: PORT
-          value: "5000"
+        envFrom:
+        - configMapRef:
+            name: task-api-config
         resources:
           requests:
             memory: "256Mi"
